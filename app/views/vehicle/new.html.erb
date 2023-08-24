@@ -1,0 +1,24 @@
+<h1>Add the Vehicle Below to rent</h1>
+<h1>Add Property for Rent</h1>
+
+<%=form_with url: "/vehicle" , method: :post , data: {turbo: false} do |form| %>
+ <%= form.label :title, "Title" %>
+ <%= form.text_field :title %>
+ <%= form.label :description, "Description" %>
+ <%= form.text_field :description %>
+ <%= form.label :duration, "Duration" %>
+ <%= form.text_field :duration %>
+ <%= form.label :price,"Price" %>
+ <%= form.text_field :price %>
+ 
+ <%= form.label :area,"Area" %>
+ <%= form.text_field :area %>
+ <%= form.label :location,"Location" %>
+ <%= form.text_field :location %>
+ <%= form.label :bedrooms,"Bedrooms" %>
+ <%= form.text_field :bedrooms %>
+
+ <%= form.label :main_image %>
+<%= form.file_field :main_image %>
+ <%= form.submit %>
+<% end %>

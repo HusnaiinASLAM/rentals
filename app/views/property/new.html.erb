@@ -1,0 +1,58 @@
+<h1>Add Property for Rent</h1>
+
+<%= form_with url: "/property", method: :post, data: { turbo: false } do |form| %>
+  <%= form.label :title, "Title" %>
+  <%= form.text_field :title %>
+  <%= form.label :description, "Description" %>
+  <%= form.text_field :description %>
+  <%= form.label :duration, "Duration" %>
+  <%= form.text_field :duration %>
+  <%= form.label :price, "Price" %>
+  <%= form.text_field :price %>
+
+  <%= form.select :property_type, options_for_select(["Property", "Vehicle"]), {}, { id: "property-type-select" } %>
+
+  <div id="Property" style="display: none;">
+    <%= form.label :area, "Area" %>
+    <%= form.text_field :area %>
+    <%= form.label :location, "Location" %>
+    <%= form.text_field :location %>
+    <%= form.label :bedrooms, "Bedrooms" %>
+    <%= form.text_field :bedrooms %>
+    <%= form.label :main_image_property %>
+    <%= form.file_field :main_image %>
+  </div>
+
+  <div id="Vehicle" style="display: none;">
+    <%= form.label :capacity, "Capacity" %>
+    <%= form.text_field :capacity %>
+    <%= form.label :engine, "Engine" %>
+    <%= form.text_field :engine %>
+    <%= form.label :time, "For how much time" %>
+    <%= form.text_field :time %>
+    <%= form.label :model, "Model" %>
+    <%= form.text_field :model %>
+    <%= form.label :wheel, "Wheel" %>
+    <%= form.text_field :wheel %>
+    <%= form.label :color, "Color" %>
+    <%= form.text_field :color %>
+    <%= form.label :mileage, "Mileage" %>
+    <%= form.text_field :mileage %>
+    <%= form.label :main_image_vehicle %>
+    <%= form.file_field :main_image%>
+  </div>
+
+  <%= form.submit %>
+<% end %>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    $('#property-type-select').change(function() {
+      var selectedValue = $(this).val();
+      $('#Property, #Vehicle').hide();
+      $('#' + selectedValue).show();
+    });
+  });
+</script>

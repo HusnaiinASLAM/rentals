@@ -1,0 +1,18 @@
+<h1>Here all rentals will be shown.</h1>
+<button><%= link_to "Add for Rent", new_rental_path%></button>
+<%= button_to "logout", destroy_user_session_path, method: :delete  %>
+
+
+
+<% @rentals.each do |rental| %>
+    <% if rental.main_image.present? %>
+    <%= image_tag rental.main_image %>
+  <% end %>
+    <%= rental.title%>
+    <%= rental.description%>
+    <%= rental.type%>
+    <%= rental.duration%>
+    <%= rental.price%>
+    <%= link_to "Details", rental_path(rental.id)%>
+    <%= rental.id%>
+<% end %>

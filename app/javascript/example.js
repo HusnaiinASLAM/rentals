@@ -1,0 +1,1 @@
+console.log("js is working in the rails.")
